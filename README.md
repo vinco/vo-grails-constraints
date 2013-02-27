@@ -8,11 +8,10 @@ Este plugin tiene como propósito convertir validaciones de clases de dominio qu
 
 * Generar una clase en el directorio 'src/groovy/com/vincoorbis/grails/constraints' con la lógica de la restricción. 
  
-import org.springframework.validation.Errors
+      import org.springframework.validation.Errors
 	  import org.codehaus.groovy.grails.validation.AbstractConstraint
 
       import java.util.regex.Pattern
-
 
       class RFCConstraint extends AbstractConstraint {
 
@@ -43,12 +42,12 @@ import org.springframework.validation.Errors
 
 * Registrar el constraint en el archivo 'VoGrailsContraintsGrailsPlugin' dentro del bloque 'doWithSpring':
 
+	   ...
        def doWithSpring = {
-       
             ConstrainedProperty.registerNewConstraint(RFCConstraint.CONSTRAINT_NAME, RFCConstraint.class)
-       
        }
-   
+       ...   
+  
 
 **Nota: Para generar un nuevo constraint, crea una branch a partir de development y genera un pull request a development **
 
