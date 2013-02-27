@@ -12,10 +12,12 @@ Este plugin tiene como propósito convertir validaciones de clases de dominio qu
       
 
 * Registrar el constraint en el archivo 'VoGrailsContraintsGrailsPlugin' dentro del bloque 'doWithSpring':
-    
+
        def doWithSpring = {
+       
             ConstrainedProperty.registerNewConstraint(RFCConstraint.CONSTRAINT_NAME, RFCConstraint.class)
-        }
+       
+       }
    
 
 **Nota: Para generar un nuevo constraint, crea una branch a partir de development y genera un pull request a development **
