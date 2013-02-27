@@ -9,37 +9,37 @@ Este plugin tiene como propósito convertir validaciones de clases de dominio qu
 * Generar una clase en el directorio 'src/groovy/com/vincoorbis/grails/constraints' con la lógica de la restricción. 
  
 
-    import org.springframework.validation.Errors
-	import org.codehaus.groovy.grails.validation.AbstractConstraint
+      import org.springframework.validation.Errors
+	  import org.codehaus.groovy.grails.validation.AbstractConstraint
 
-    import java.util.regex.Pattern
+      import java.util.regex.Pattern
 
 
-    class RFCConstraint extends AbstractConstraint {
+      class RFCConstraint extends AbstractConstraint {
 
-    //sets constraint name
-    public static final String CONSTRAINT_NAME = "rfc"
+      //sets constraint name
+      public static final String CONSTRAINT_NAME = "rfc"
 
-    //sets regex to match
-    public static final Pattern REGEXP = Pattern.compile("[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?")
+      //sets regex to match
+      public static final Pattern REGEXP = Pattern.compile("[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?")
 
-    //process validation
-    protected void processValidate(Object target, Object propertyValue, Errors errors) {
+      //process validation
+      protected void processValidate(Object target, Object propertyValue, Errors errors) {
         if (!REGEXP.matcher(propertyValue).matches()) {
             Object[] args = [ constraintPropertyName, constraintOwningClass,propertyValue ]
             rejectValue(target, errors, "Invalid RFC  format", "default.rfc.invalidFormat.message", args)
             return
         }
-    }
+      }
 
-    boolean supports(Class type) {
+      boolean supports(Class type) {
         return type && String.class.isAssignableFrom(type);
-    }
+      }
 
-    String getName() {
+        String getName() {
         return CONSTRAINT_NAME;
-    }
-    }
+        }
+       }
 
 * Registrar el constraint en el archivo 'VoGrailsContraintsGrailsPlugin' dentro del bloque 'doWithSpring':
     
