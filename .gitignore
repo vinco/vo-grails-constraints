@@ -22,3 +22,5 @@ web-app
 grails-app/conf/Config.groovy
 *.zip
 plugin.xml
+README
+README.md
