@@ -9,6 +9,7 @@ Este plugin tiene como propósito convertir validaciones de clases de dominio qu
 * Generar una clase en el directorio 'src/groovy/com/vincoorbis/grails/constraints' con la lógica de la restricción. 
  
       import org.springframework.validation.Errors
+      
 	  import org.codehaus.groovy.grails.validation.AbstractConstraint
 
       import java.util.regex.Pattern
